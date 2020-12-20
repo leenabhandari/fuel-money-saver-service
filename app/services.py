@@ -1,5 +1,18 @@
 from app import utils
 
+
+def getOriginalCost(cost,dist,n,cap,fuel):
+    cur = 0
+    ans = 0
+    while(cur<n-1):
+        j=utils.getMaxJumpNode(cur,dist,cap)
+        trip=utils.getDistTill(cur,j,dist)
+        ans+=cost[cur]*trip
+        fuel=0
+        cur = j
+    return ans
+
+
 def getMinCost(cost,dist,n,cap,fuel,pumpCoordinates):
     res = {}
     ans=0
@@ -21,7 +34,7 @@ def getMinCost(cost,dist,n,cap,fuel,pumpCoordinates):
             expenditure[i] = cost[cur]*trip
             fuel=0
             cur=i
-        print("Cost",ans)
+        print("Cost: ",ans)
     coordinates = []
     for i in expenditure:
         obj = pumpCoordinates[i]

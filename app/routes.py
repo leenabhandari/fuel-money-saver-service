@@ -21,6 +21,7 @@ def main():
     fuel=0
     print("Calculating...")
     final_output=services.getMinCost(cost,dist,n,cap,fuel,pumpCoordinates)
+    final_output.update({'originalCost': services.getOriginalCost(cost,dist,n,cap,fuel)})
     return jsonify(final_output)
 
 @app.route('/fuel', methods = ['POST'])
