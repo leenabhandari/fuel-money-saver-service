@@ -1,7 +1,7 @@
 from app import utils
 
 
-def getOriginalCost(cost,dist,cap,fuel):
+def getOriginalCost(cost,dist,cap,fuel,avgFuelRate):
     cur = 0
     ans = 0
     n = len(cost)
@@ -12,11 +12,11 @@ def getOriginalCost(cost,dist,cap,fuel):
         ans+=cost[cur]*trip
         fuel=0
         cur = j
-        print("Originally Cost: ",ans)
-    return ans
+        print("Originally Cost: ",ans/avgFuelRate)
+    return ans/avgFuelRate
 
 
-def getMinCost(cost,dist,cap,fuel,pumpCoordinates):
+def getMinCost(cost,dist,cap,fuel,pumpCoordinates,avgFuelRate):
     res = {}
     ans=0
     cur=0
@@ -45,9 +45,10 @@ def getMinCost(cost,dist,cap,fuel,pumpCoordinates):
         obj.update({'spend': expenditure[i]})
         coordinates.append(obj)
         
+    ans = ans/avgFuelRate
     res['coordinates'] = coordinates
     res['finalCost'] = ans
-    originalCost = getOriginalCost(cost,dist,cap,fuel)
+    originalCost = getOriginalCost(cost,dist,cap,fuel,avgFuelRate)
     res['originalCost'] = originalCost
     res['amtSaved'] = originalCost - ans
     return res

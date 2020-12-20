@@ -21,7 +21,7 @@ def main():
     fuelCapacity = stubs.fuelCapacity
     cap= utils.getCapacityDist(avgFuelRate,fuelCapacity)
     fuel= utils.getFuelDist(avgFuelRate,currentFuel) 
-    final_output=services.getMinCost(cost,dist,cap,fuel,pumpCoordinates)
+    final_output=services.getMinCost(cost,dist,cap,fuel,pumpCoordinates,avgFuelRate)
     return jsonify(final_output)
 
 @app.route('/fuel', methods = ['POST'])
@@ -38,5 +38,5 @@ def mainPost():
 
     cap= utils.getCapacityDist(avgFuelRate,fuelCapacity)
     fuel= utils.getFuelDist(avgFuelRate,currentFuel) 
-    final_output=services.getMinCost(cost,dist,cap,fuel,pumpCoordinates)
+    final_output=services.getMinCost(cost,dist,cap,fuel,pumpCoordinates,avgFuelRate)
     return jsonify(final_output)
