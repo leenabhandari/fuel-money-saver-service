@@ -8,6 +8,7 @@ def getOriginalCost(cost,dist,cap,fuel):
     while(cur<n-1):
         j=utils.getMaxJumpNode(cur,dist,cap)
         trip=utils.getDistTill(cur,j,dist)
+        print(trip)
         ans+=cost[cur]*trip
         fuel=0
         cur = j
@@ -29,13 +30,13 @@ def getMinCost(cost,dist,cap,fuel,pumpCoordinates):
         if(i==cur):
             ans+=cost[i]*(cap-fuel)
             expenditure[cur] = cost[i]*(cap-fuel)
-            fuel=cap-utils.getDistTill(cur,j,dist)
+            fuel=0
             cur=j
         else:
             trip=utils.getDistTill(cur,i,dist)
             ans+=cost[cur]*trip
             expenditure[cur] = cost[cur]*trip
-            fuel=0
+            fuel=cap-utils.getDistTill(cur,i,dist)
             cur=i
         print("Cost: ",ans)
     coordinates = []
