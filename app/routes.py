@@ -30,6 +30,7 @@ def mainPost():
     pumps = content['pumps']
     cost= utils.getCostList(pumps) 
     dist= utils.getDistList(pumps) 
+    print(dist)
     pumpCoordinates = utils.getCoordinates(pumps)
     avgFuelRate = content['avgFuelRate']
     currentFuel = content['currentFuel']

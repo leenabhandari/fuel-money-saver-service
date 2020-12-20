@@ -32,7 +32,7 @@ def getCostList(pumps):
 def getDistList(pumps):
     dist = []
     for obj in pumps:
-        dist.append(obj['distToNext'])
+        dist.append(obj['distToNext'] * obj['multiplier'])
     dist.pop()
     return dist
 
