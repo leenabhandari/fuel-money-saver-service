@@ -45,3 +45,9 @@ def getCoordinates(pumps):
             'lon': obj['lon']
         })
     return coordinates
+
+def getCapacityDist(avgFuelRate,fuelCapacity):
+    return avgFuelRate * fuelCapacity
+
+def getFuelDist(avgFuelRate, currentFuel):
+    return avgFuelRate * currentFuel

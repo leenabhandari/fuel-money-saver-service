@@ -31,8 +31,12 @@ def mainPost():
     dist= utils.getDistList(pumps) 
     pumpCoordinates = utils.getCoordinates(pumps)
     n=len(cost)
-    cap=content['capacity']
-    fuel=content['fuel']
+    avgFuelRate = content['avgFuelRate']
+    currentFuel = content['currentFuel']
+    fuelCapacity = content['fuelCapacity']
+
+    cap= utils.getCapacityDist(avgFuelRate,fuelCapacity)#content['capacity']
+    fuel= utils.getFuelDist(avgFuelRate,currentFuel) #content['fuel']
     print("Calculating...")
     final_output=services.getMinCost(cost,dist,n,cap,fuel,pumpCoordinates)
     return jsonify(final_output)
