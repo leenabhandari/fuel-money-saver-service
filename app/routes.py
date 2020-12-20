@@ -8,7 +8,7 @@ from flask import request
 @app.route('/')
 @app.route('/index')
 def index():
-    return "Fuel-money saver Service"
+    return "Fuel-money saver Service to save money spent on fuel on long trips. Endpoint: /fuel . Use GET for predefined inputs and POST for custom input."
 
 @app.route('/fuel')
 def main():
