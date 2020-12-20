@@ -35,3 +35,7 @@ pumps = [{
         'cost':40.2,
         'distToNext':0
     },]
+
+avgFuelRate = 10
+currentFuel = 0
+fuelCapacity = 30.1

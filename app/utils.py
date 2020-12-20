@@ -4,7 +4,6 @@ def getMaxJumpNode(cur,dist,cap):
     while(cur<=len(dist)-1 and limit+dist[cur]<=cap):
         limit+=dist[cur]
         cur=cur+1
-        print(limit)
     return cur
 
 def getNextMinNode(j,cur,cost):

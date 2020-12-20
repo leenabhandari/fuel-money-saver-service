@@ -16,12 +16,13 @@ def main():
     cost= utils.getCostList(pumps) 
     dist= utils.getDistList(pumps) 
     pumpCoordinates = utils.getCoordinates(pumps)
-    n=len(cost)
-    cap=300
-    fuel=0
-    print("Calculating...")
-    final_output=services.getMinCost(cost,dist,n,cap,fuel,pumpCoordinates)
-    final_output.update({'originalCost': services.getOriginalCost(cost,dist,n,cap,fuel)})
+    avgFuelRate = stubs.avgFuelRate
+    currentFuel = stubs.currentFuel
+    fuelCapacity = stubs.fuelCapacity
+    cap= utils.getCapacityDist(avgFuelRate,fuelCapacity)
+    fuel= utils.getFuelDist(avgFuelRate,currentFuel) 
+    final_output=services.getMinCost(cost,dist,cap,fuel,pumpCoordinates)
+    final_output.update({'originalCost': services.getOriginalCost(cost,dist,cap,fuel)})
     return jsonify(final_output)
 
 @app.route('/fuel', methods = ['POST'])
@@ -31,13 +32,12 @@ def mainPost():
     cost= utils.getCostList(pumps) 
     dist= utils.getDistList(pumps) 
     pumpCoordinates = utils.getCoordinates(pumps)
-    n=len(cost)
     avgFuelRate = content['avgFuelRate']
     currentFuel = content['currentFuel']
     fuelCapacity = content['fuelCapacity']
 
-    cap= utils.getCapacityDist(avgFuelRate,fuelCapacity)#content['capacity']
-    fuel= utils.getFuelDist(avgFuelRate,currentFuel) #content['fuel']
-    print("Calculating...")
-    final_output=services.getMinCost(cost,dist,n,cap,fuel,pumpCoordinates)
+    cap= utils.getCapacityDist(avgFuelRate,fuelCapacity)
+    fuel= utils.getFuelDist(avgFuelRate,currentFuel) 
+    final_output=services.getMinCost(cost,dist,cap,fuel,pumpCoordinates)
+    final_output.update({'originalCost': services.getOriginalCost(cost,dist,cap,fuel)})
     return jsonify(final_output)
