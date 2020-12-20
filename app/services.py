@@ -46,4 +46,7 @@ def getMinCost(cost,dist,cap,fuel,pumpCoordinates):
         
     res['coordinates'] = coordinates
     res['finalCost'] = ans
+    originalCost = getOriginalCost(cost,dist,cap,fuel)
+    res['originalCost'] = originalCost
+    res['amtSaved'] = originalCost - ans
     return res
