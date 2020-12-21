@@ -66,7 +66,7 @@
 }
 
 
-##Algorithm
+## Algorithm
 
 	getOptimizedFuelPlan(currentFuel, avgFuelDistance, maxTankCapacity, stations):
 		currentStation= 0 //startingPoint
