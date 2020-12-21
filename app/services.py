@@ -42,7 +42,7 @@ def getMinCost(cost,dist,cap,fuel,pumpCoordinates,avgFuelRate):
     coordinates = []
     for i in expenditure:
         obj = pumpCoordinates[i]
-        obj.update({'spend': expenditure[i]})
+        obj.update({'spend': expenditure[i]/avgFuelRate})
         coordinates.append(obj)
         
     ans = ans/avgFuelRate
