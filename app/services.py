@@ -9,11 +9,11 @@ def getOriginalCost(cost,dist,cap,fuel,avgFuelRate):
         j=utils.getMaxJumpNode(cur,dist,cap)
         trip=utils.getDistTill(cur,j,dist)
         print(trip)
-        ans+=cost[cur]*trip
+        ans+=(cost[cur]*trip)/avgFuelRate
         fuel=0
         cur = j
-        print("Originally Cost: ",ans/avgFuelRate)
-    return ans/avgFuelRate
+        print("Originally Cost: ",ans)
+    return ans
 
 
 def getMinCost(cost,dist,cap,fuel,pumpCoordinates,avgFuelRate):
@@ -28,24 +28,23 @@ def getMinCost(cost,dist,cap,fuel,pumpCoordinates,avgFuelRate):
         print("Distance:",j,"next:",i,"current:",cur,"fuel: ",fuel)
         expenditure[cur] = 0
         if(i==cur):
-            ans+=cost[i]*(cap-fuel)
-            expenditure[cur] = cost[i]*(cap-fuel)
+            ans+=(cost[i]*(cap-fuel))/avgFuelRate
+            expenditure[cur] = cost[i]*(cap-fuel)/avgFuelRate
             fuel=0
             cur=j
         else:
             trip=utils.getDistTill(cur,i,dist)
-            ans+=cost[cur]*trip
-            expenditure[cur] = cost[cur]*trip
+            ans+=(cost[cur]*trip)/avgFuelRate
+            expenditure[cur] = cost[cur]*trip/avgFuelRate
             fuel=cap-utils.getDistTill(cur,i,dist)
             cur=i
         print("Cost: ",ans)
     coordinates = []
     for i in expenditure:
         obj = pumpCoordinates[i]
-        obj.update({'spend': expenditure[i]/avgFuelRate})
+        obj.update({'spend': expenditure[i]})
         coordinates.append(obj)
         
-    ans = ans/avgFuelRate
     res['coordinates'] = coordinates
     res['finalCost'] = ans
     originalCost = getOriginalCost(cost,dist,cap,fuel,avgFuelRate)
