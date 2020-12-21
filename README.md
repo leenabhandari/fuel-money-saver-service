@@ -2,8 +2,8 @@
  
  https://honda-fuel-app.herokuapp.com/fuel
 
-  GET - predefined input using stubs
-  POST - use the follow JSON input example
+  **GET** - predefined input using stubs\
+  **POST** - use the follow JSON input example
   
 	  {"pumps" : [{
 		"lat":15.4909,
