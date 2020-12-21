@@ -28,14 +28,16 @@ def getMinCost(cost,dist,cap,fuel,pumpCoordinates,avgFuelRate):
         print("Distance:",j,"next:",i,"current:",cur,"fuel: ",fuel)
         expenditure[cur] = 0
         if(i==cur):
-            ans+=(cost[i]*(cap-fuel))/avgFuelRate
-            expenditure[cur] = cost[i]*(cap-fuel)/avgFuelRate
+            val = (cost[i]*(cap-fuel))/avgFuelRate
+            ans+= val
+            expenditure[cur] = val
             fuel=0
             cur=j
         else:
             trip=utils.getDistTill(cur,i,dist)
-            ans+=(cost[cur]*trip)/avgFuelRate
-            expenditure[cur] = cost[cur]*trip/avgFuelRate
+            val = (cost[cur]*trip)/avgFuelRate
+            ans+= val
+            expenditure[cur] = val
             fuel=cap-utils.getDistTill(cur,i,dist)
             cur=i
         print("Cost: ",ans)
