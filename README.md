@@ -64,3 +64,28 @@
     "currentFuel": 0,
     "fuelCapacity":40
 }
+
+
+##Algorithm
+
+	getOptimizedFuelPlan(currentFuel, avgFuelDistance, maxTankCapacity, stations):
+		currentStation= 0 //startingPoint
+		currentFuel = fuelInTank
+	
+		while currentStation < endPoint:
+			estimatedPrice = 0
+			distanceCanTravel = currentFuel * avgFuelDistance
+			j = getMaxDistanceNode()
+			minPriceNode = getMinPriceNodeUntilJ(j)
+			if minPriceNode = currentStation:
+				currentStation = j
+				estimatedPrice += calculateTripPrice()
+				updateCurrentFuel()
+			else:
+				currentStation = minPriceNode
+				estimatedPrice += calculateTripPrice()
+				updateCurrentFuel()
+			fuelStations.append(currentStation)
+			addTripCostToStation()
+
+		return estimatedPrice,fuelStations
