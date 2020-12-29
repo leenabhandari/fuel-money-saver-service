@@ -5,60 +5,68 @@
   **GET** - predefined input using stubs\
   **POST** - use the follow JSON input example
   
-	  {"pumps" : [{
-		"lat":15.4909,
-		"lon":73.8278,
+	 {"pumps" : [{
+		"id":1,
 		"cost":82,
-		"distToNext":115,
-		"rate":1.1
+		"distToNext":117.69,
+		"totalDuration":934,
+		"trafficDelay":98,
+		"rate":1
 	    },
 	    {
-		"lat":15.8497,
-		"lon":74.4977,
+		"id":2,
 		"cost":78,
-		"distToNext":110,
+		"distToNext":104.70,
+		"totalDuration":767,
+		"trafficDelay":92,
 		"rate":1
 	    },
 	    {
-		"lat":16.7050,
-		"lon":74.2433,
+		"id":3,
 		"cost":90,
-		"distToNext":230,
+		"distToNext":113.06,
+		"totalDuration":556,
+		"trafficDelay":83,
 		"rate":1
 	    },
 	    {
-		"lat":18.5204,
-		"lon":73.8567,
+		"id":4,
 		"cost":87,
-		"distToNext":150,
+		"distToNext":100.87,
+		"totalDuration":323,
+		"trafficDelay":7,
 		"rate":1
 	    },
 	    {
-		"lat":19.0760,
-		"lon":72.8777,
+		"id":5,
 		"cost":91,
-		"distToNext":280,
+		"distToNext":101.96,
+		"totalDuration":328,
+		"trafficDelay":28,
 		"rate":1.1
 	    },
 	    {
-		"lat":21.1702,
-		"lon":72.8311,
+		"id":6,
 		"cost":79,
-		"distToNext":260,
+		"distToNext":100.45,
+		"totalDuration":316,
+		"trafficDelay":10,
 		"rate":1
 	    },
 	    {
-		"lat":23.0225,
-		"lon":72.5714,
+		"id":7,
 		"cost":82,
-		"distToNext":215,
+		"distToNext":102.13,
+		"totalDuration":310,
+		"trafficDelay":15,
 		"rate":1
 	    },
 	    {
-		"lat":22.3039,
-		"lon":70.8022,
+		"id":8,
 		"cost":82,
 		"distToNext":0,
+		"totalDuration":327,
+		"trafficDelay":33,
 		"rate":1
 	    }],
 	    "avgFuelRate": 16,
