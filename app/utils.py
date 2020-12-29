@@ -32,16 +32,19 @@ def getCostList(pumps):
 def getDistList(pumps):
     dist = []
     for obj in pumps:
-        dist.append(obj['distToNext'] * obj['rate'])
+        calcDist = obj['distToNext']
+        distWithTraffic = (obj['trafficDelay'] * obj['distToNext'] / obj['totalDuration'] ) + calcDist
+        distWithOtherFactors = distWithTraffic * obj['rate']
+        print(distWithOtherFactors)
+        dist.append(distWithOtherFactors)
     dist.pop()
     return dist
 
-def getCoordinates(pumps):
+def getPumpIds(pumps):
     coordinates = []
     for obj in pumps:
         coordinates.append({
-            'lat': obj['lat'],
-            'lon': obj['lon']
+            'id': obj['id']
         })
     return coordinates
 
