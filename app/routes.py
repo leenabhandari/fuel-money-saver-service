@@ -13,7 +13,8 @@ def index():
 @app.route('/fuel')
 def main():
     pumps = stubs.pumps
-    cost= utils.getCostList(pumps) 
+    #cost= utils.getCostList(pumps) 
+    cost = services.getPumpCosts(pumps)
     dist= utils.getDistList(pumps) 
     pumpCoordinates = utils.getPumpIds(pumps)
     avgFuelRate = stubs.avgFuelRate
@@ -28,7 +29,8 @@ def main():
 def mainPost():
     content = request.get_json()
     pumps = content['pumps']
-    cost= utils.getCostList(pumps) 
+    #cost= utils.getCostList(pumps) 
+    cost = services.getPumpCosts(pumps)
     dist= utils.getDistList(pumps) 
     print(dist)
     pumpIds = utils.getPumpIds(pumps)

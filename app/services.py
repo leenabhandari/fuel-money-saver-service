@@ -1,4 +1,21 @@
 from app import utils
+import requests
+
+defaultFuelPrice = 82.1
+
+def getPumpCosts(pumps):
+    cost = []
+    for obj in pumps:
+        city = obj['cityName']
+        response = requests.get('https://mfapps.indiatimes.com/ET_Calculators/oilprice.htm?citystate=' + city)
+        data = response.json()
+        result = data['results']
+        if len(result) == 0:
+            cost.append(defaultFuelPrice)
+        else:
+            cost.append(float(result[0]['petrolPrice']))
+            print(city + " : " + result[0]['petrolPrice'])
+    return cost
 
 
 def getOriginalCost(cost,dist,cap,fuel,avgFuelRate):
