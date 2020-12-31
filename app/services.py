@@ -62,7 +62,7 @@ def getMinCost(cost,dist,cap,fuel,pumpIds,avgFuelRate):
     for i in expenditure:
         obj = pumpIds[i]
         obj.update({'spend': expenditure[i]})
-        obj.update({'patrolRate': cost[i]})
+        obj.update({'petrolRate': cost[i]})
         pumps.append(obj)
         
     res['pumpIds'] = pumps
