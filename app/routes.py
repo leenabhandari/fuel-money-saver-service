@@ -15,13 +15,13 @@ def main():
     pumps = stubs.pumps
     #cost= utils.getCostList(pumps) 
     cost = services.getPumpCosts(pumps)
-    dist= utils.getDistList(pumps) 
     pumpCoordinates = utils.getPumpIds(pumps)
     avgFuelRate = stubs.avgFuelRate
     currentFuel = stubs.currentFuel
     fuelCapacity = stubs.fuelCapacity
-    cap= utils.getCapacityDist(avgFuelRate,fuelCapacity)
+    cap= utils.getFuelDist(avgFuelRate,fuelCapacity)
     fuel= utils.getFuelDist(avgFuelRate,currentFuel) 
+    dist= utils.getDistList(pumps,fuel) 
     final_output=services.getMinCost(cost,dist,cap,fuel,pumpCoordinates,avgFuelRate)
     return jsonify(final_output)
 
@@ -29,16 +29,16 @@ def main():
 def mainPost():
     content = request.get_json()
     pumps = content['pumps']
-    #cost= utils.getCostList(pumps) 
-    cost = services.getPumpCosts(pumps)
-    dist= utils.getDistList(pumps) 
-    print(dist)
-    pumpIds = utils.getPumpIds(pumps)
     avgFuelRate = content['avgFuelRate']
     currentFuel = content['currentFuel']
     fuelCapacity = content['fuelCapacity']
-
-    cap= utils.getCapacityDist(avgFuelRate,fuelCapacity)
+    #cost= utils.getCostList(pumps) 
+    cost = services.getPumpCosts(pumps)
+    cap= utils.getFuelDist(avgFuelRate,fuelCapacity)
     fuel= utils.getFuelDist(avgFuelRate,currentFuel) 
+    dist= utils.getDistList(pumps,fuel) 
+    print(dist)
+    pumpIds = utils.getPumpIds(pumps)
+    
     final_output=services.getMinCost(cost,dist,cap,fuel,pumpIds,avgFuelRate)
     return jsonify(final_output)

@@ -29,7 +29,7 @@ def getCostList(pumps):
         cost.append(obj['cost'])
     return cost
 
-def getDistList(pumps):
+def getDistList(pumps,fuel):
     dist = []
     for obj in pumps:
         calcDist = obj['distToNext']
@@ -37,7 +37,16 @@ def getDistList(pumps):
         distWithOtherFactors = distWithTraffic * obj['rate']
         print(distWithOtherFactors)
         dist.append(distWithOtherFactors)
+
     dist.pop()
+
+    i = 0
+    while(i<len(dist) and dist[i]<=fuel):
+        fuel = fuel - dist[i]
+        dist[i] = 0
+        i = i + 1
+    if(i<len(dist)):
+        dist[i] = dist[i] - fuel
     return dist
 
 def getPumpIds(pumps):
@@ -47,9 +56,6 @@ def getPumpIds(pumps):
             'id': obj['id']
         })
     return coordinates
-
-def getCapacityDist(avgFuelRate,fuelCapacity):
-    return avgFuelRate * fuelCapacity
 
 def getFuelDist(avgFuelRate, currentFuel):
     return avgFuelRate * currentFuel
