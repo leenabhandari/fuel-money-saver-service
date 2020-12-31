@@ -1,7 +1,7 @@
 from app import utils
 import requests
 
-defaultFuelPrice = 82.1
+defaultFuelPrice = 85.21
 
 def getPumpCosts(pumps):
     cost = []
