@@ -20,7 +20,7 @@ def getPumpCosts(pumps):
     return cost
 
 
-def getOriginalCost(cost,dist,cap,fuel,avgFuelRate):
+def getOriginalCost(cost,dist,cap,avgFuelRate):
     cur = 0
     ans = 0
     n = len(cost)
@@ -29,13 +29,12 @@ def getOriginalCost(cost,dist,cap,fuel,avgFuelRate):
         trip=utils.getDistTill(cur,j,dist)
         print("Original dist: " + str(trip) + " next: "+ str(j) + " current: " + str(cur))
         ans+=(cost[cur]*trip)/avgFuelRate
-        fuel=0
         cur = j
         print("Originally Cost: ",ans)
     return ans
 
 
-def getMinCost(cost,dist,cap,fuel,pumpIds,avgFuelRate):
+def getMinCost(cost,dist,cap,pumpIds,avgFuelRate):
     res = {}
     ans=0
     cur=0
@@ -44,21 +43,19 @@ def getMinCost(cost,dist,cap,fuel,pumpIds,avgFuelRate):
     while(cur<n-1):
         j=utils.getMaxJumpNode(cur,dist,cap)
         i=utils.getNextMinNode(j,cur,cost)
-        print("Distance:",j,"next:",i,"current:",cur,"fuel: ",fuel)
+        print("Distance:",j,"next:",i,"current:",cur)
         expenditure[cur] = 0
         if(i==cur):
             trip=utils.getDistTill(cur,j,dist)
             val = (cost[i]*trip)/avgFuelRate
             ans+= val
             expenditure[cur] = val
-            fuel=0
             cur=j
         else:
             trip=utils.getDistTill(cur,i,dist)
             val = (cost[cur]*trip)/avgFuelRate
             ans+= val
             expenditure[cur] = val
-            fuel=cap-utils.getDistTill(cur,i,dist)
             cur=i
         print("Cost: ",ans)
     pumps = []
@@ -70,7 +67,7 @@ def getMinCost(cost,dist,cap,fuel,pumpIds,avgFuelRate):
         
     res['pumpIds'] = pumps
     res['finalCost'] = ans
-    originalCost = getOriginalCost(cost,dist,cap,fuel,avgFuelRate)
+    originalCost = getOriginalCost(cost,dist,cap,avgFuelRate)
     res['originalCost'] = originalCost
     res['amtSaved'] = originalCost - ans
     return res
