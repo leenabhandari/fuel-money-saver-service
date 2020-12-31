@@ -5,16 +5,18 @@ defaultFuelPrice = 85.21
 
 def getPumpCosts(pumps):
     cost = []
+    available_cities = "ahmedabad Ahmedabad  allahabad Allahabad  ambala Ambala  aurangabad Aurangabad  bangalore Bangalore  belgaum Belgaum  bhopal Bhopal  bhubaneswar Bhubaneswar  chandigarh Chandigarh  chennai Chennai  coimbatore Coimbatore  dehradun Dehradun  delhi Delhi  erode Erode  faridabad Faridabad  ghaziabad Ghaziabad  gulbarga Gulbarga  guntur Guntur  gurgaon Gurgaon  guwahati Guwahati  hyderabad Hyderabad  indore Indore  jaipur Jaipur  jalgaon Jalgaon  jammu Jammu  jamshedpur Jamshedpur  kakinada Kakinada  kannur Kannur  kanpur Kanpur  kolhapur Kolhapur  kolkata Kolkata  kozhikode Kozhikode  lucknow Lucknow  ludhiana Ludhiana  madurai Madurai  malappuram Malappuram  mangalore Mangalore  mumbai Mumbai  mysore Mysore  nagercoil Nagercoil  nagpur Nagpur  nashik Nashik  nellore Nellore  noida Noida  patna Patna  pondicherry Pondicherry  pune Pune  raipur Raipur  rajkot Rajkot  ranchi Ranchi  salem Salem  sangli Sangli  shimla Shimla  solapur Solapur  srinagar Srinagar  surat Surat  thane Thane  thanjavur Thanjavur  thiruvananthapuram Thiruvananthapuram  tirunelveli Tirunelveli  trichy Trichy  trivandrum Trivandrum  udupi Udupi  vadodara Vadodara  varanasi Varanasi  vellore Vellore  visakhapatnam Visakhapatnam  warangal Warangal  "
+
     for obj in pumps:
         city = obj['cityName']
-        response = requests.get('https://mfapps.indiatimes.com/ET_Calculators/oilprice.htm?citystate=' + city)
-        data = response.json()
-        result = data['results']
-        if len(result) == 0:
-            cost.append(defaultFuelPrice)
-        else:
+        if available_cities.find(city) != -1:
+            response = requests.get('https://mfapps.indiatimes.com/ET_Calculators/oilprice.htm?citystate=' + city)
+            data = response.json()
+            result = data['results']
             cost.append(float(result[0]['petrolPrice']))
             print(city + " : " + result[0]['petrolPrice'])
+        else:
+            cost.append(defaultFuelPrice)
     return cost
 
 
