@@ -60,6 +60,8 @@ def getMinCost(cost,dist,cap,pumpIds,avgFuelRate):
         print("Cost: ",ans)
     pumps = []
     for i in expenditure:
+        if(expenditure[i] == 0):
+            continue
         obj = pumpIds[i]
         obj.update({'spend': expenditure[i]})
         obj.update({'petrolRate': cost[i]})
