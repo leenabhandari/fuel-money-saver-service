@@ -78,7 +78,7 @@
 
 **https://docs.google.com/presentation/d/1ITZGMWD5aCPoYGCXkdq11kH2GLRLGWJfUL3g-0c7p_Q/edit?usp=sharing** \
 **DEMO - https://drive.google.com/file/d/1oPJhf3JBVJnyz305ymajk1dx4901m1Oi/view** \
-**APK - https://drive.google.com/file/d/11gZvyWVkwp9TsN7cHFqQMwsRkkSQH2cb/view?usp=sharing** \
+**APK - https://drive.google.com/file/d/11gZvyWVkwp9TsN7cHFqQMwsRkkSQH2cb/view?usp=sharing** 
 ## Algorithm
 
 	getOptimizedFuelPlan(currentFuel, avgFuelDistance, maxTankCapacity, stations):
