@@ -1,6 +1,6 @@
 # Smart Fuel Money Saver
  
- ### Ranked under Top 10 in the Honda Hackathon 2020
+ ### Ranked under Top 10 projects in the Honda Hackathon 2020
  
  https://honda-fuel-app.herokuapp.com/fuel
 
