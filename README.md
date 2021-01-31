@@ -7,7 +7,7 @@
 **APK - https://drive.google.com/file/d/11gZvyWVkwp9TsN7cHFqQMwsRkkSQH2cb/view?usp=sharing** 
  ![System Design](https://i.ibb.co/D8sLFJ5/Capture.png)
  
-  https://honda-fuel-app.herokuapp.com/fuel \
+  https://honda-fuel-app.herokuapp.com/fuel 
   
   **GET** - predefined input using stubs\
   **POST** - use the follow JSON input example
