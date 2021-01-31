@@ -3,7 +3,12 @@
  ### Ranked under Top 10 projects in the Honda Hackathon 2020
  
  https://honda-fuel-app.herokuapp.com/fuel
-
+ 
+ **https://docs.google.com/presentation/d/1ITZGMWD5aCPoYGCXkdq11kH2GLRLGWJfUL3g-0c7p_Q/edit?usp=sharing** \
+**DEMO - https://drive.google.com/file/d/1oPJhf3JBVJnyz305ymajk1dx4901m1Oi/view** \
+**APK - https://drive.google.com/file/d/11gZvyWVkwp9TsN7cHFqQMwsRkkSQH2cb/view?usp=sharing** 
+ ![System Design](https://i.ibb.co/D8sLFJ5/Capture.png)
+ 
   **GET** - predefined input using stubs\
   **POST** - use the follow JSON input example
   
@@ -76,9 +81,6 @@
 	    "fuelCapacity":40
 	}
 
-**https://docs.google.com/presentation/d/1ITZGMWD5aCPoYGCXkdq11kH2GLRLGWJfUL3g-0c7p_Q/edit?usp=sharing** \
-**DEMO - https://drive.google.com/file/d/1oPJhf3JBVJnyz305ymajk1dx4901m1Oi/view** \
-**APK - https://drive.google.com/file/d/11gZvyWVkwp9TsN7cHFqQMwsRkkSQH2cb/view?usp=sharing** 
 ## Algorithm
 
 	getOptimizedFuelPlan(currentFuel, avgFuelDistance, maxTankCapacity, stations):
